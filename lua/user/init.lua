@@ -37,6 +37,7 @@ local config = {
   options = {
     opt = {
       relativenumber = true, -- sets vim.opt.relativenumber
+      colorcolumn = '81',
     },
     g = {
       mapleader = " ", -- sets vim.g.mapleader
@@ -244,7 +245,7 @@ local config = {
 
     vim.cmd("Neotree")
     vim.cmd('call timer_start(1, { -> execute( "wincmd l") })')
-    vim.opt.colorcolumn = '81' -- doesn't workkkkk
+    --vim.opt.colorcolumn = '81' -- doesn't workkkkk
 
     if(vim.fn.has('win32')) then
       vim.opt.shell = 'powershell'
