@@ -84,6 +84,7 @@ local config = {
     init = {
       -- You can disable default plugins as follows:
       -- ["goolord/alpha-nvim"] = { disable = true },
+      {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'},
       
       { 'bluz71/vim-nightfly-guicolors' },
       
@@ -223,6 +224,7 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
+      ["ff"]    = { ":Telescope find_files<cr>", desc = "Find Files" },
     },
     t = {
       -- setting a mapping to false will disable it
@@ -243,9 +245,14 @@ local config = {
       command = "source <afile> | PackerSync",
     })
 
-    vim.cmd("Neotree")
-    vim.cmd('call timer_start(1, { -> execute( "wincmd l") })')
+    -- vim.cmd("Neotree")
+    -- vim.cmd('call timer_start(1, { -> execute( "wincmd l") })')
     --vim.opt.colorcolumn = '81' -- doesn't workkkkk
+
+    require("flutter-tools").setup
+    {
+      flutter_path = "C:\\tools\\flutter\\bin\\flutter.bat",
+    }
 
     if(vim.fn.has('win32')) then
       vim.opt.shell = 'powershell'
