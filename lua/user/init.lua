@@ -224,7 +224,8 @@ local config = {
     n = {
       -- second key is the lefthand side of the map
       ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
-      ["ff"]    = { ":Telescope find_files<cr>", desc = "Find Files" },
+      ["<C-x>"] = { ":bd<cr>", desc = "Close File" },
+      ["tt"]    = { ":terminal<cr>", desc = "Open Terminal" }
     },
     t = {
       -- setting a mapping to false will disable it
