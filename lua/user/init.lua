@@ -262,6 +262,9 @@ local config = {
       vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
       vim.opt.shellquote=""
       vim.opt.shellxquote=""
+    else
+      vim.opt.shell = 'zsh'
+      vim.opt.shellcmdflag = ""
     end
 
     -- Set up custom filetypes
@@ -276,7 +279,10 @@ local config = {
     --     ["~/%.config/foo/.*"] = "fooscript",
     --   },
     -- }
+    vim.g.do_filetype_lua = 1
+    vim.g.did_load_filetypes = false
   end,
+
 }
 
 return config
