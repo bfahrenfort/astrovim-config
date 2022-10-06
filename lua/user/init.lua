@@ -83,13 +83,10 @@ local config = {
     -- Add plugins, the packer syntax without the "use"
     init = {
       -- You can disable default plugins as follows:
-      -- ["goolord/alpha-nvim"] = { disable = true },
-      {'akinsho/flutter-tools.nvim', requires = 'nvim-lua/plenary.nvim'},
-      
+      -- ["goolord/alpha-nvim"] = { disable = true },      
       { 'bluz71/vim-nightfly-guicolors' },
       
       -- You can also add new plugins here as well:
-      { 'andweeb/presence.nvim' },
       { "catppuccin/nvim", as = "catppuccin" },
       -- {
       --   "ray-x/lsp_signature.nvim",
@@ -249,24 +246,6 @@ local config = {
     -- vim.cmd("Neotree")
     -- vim.cmd('call timer_start(1, { -> execute( "wincmd l") })')
     --vim.opt.colorcolumn = '81' -- doesn't workkkkk
-
-    require("flutter-tools").setup
-    {
-      flutter_path = "C:\\tools\\flutter\\bin\\flutter.bat",
-    }
-
-    if(vim.fn.has('win32')) then
-      vim.opt.shell = 'powershell'
-      vim.opt.shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
-      vim.opt.shellredir = '-RedirectStandardOutput %s -NoNewWindow -Wait'
-      vim.opt.shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
-      vim.opt.shellquote=""
-      vim.opt.shellxquote=""
-    else
-      vim.opt.shell = 'zsh'
-      vim.opt.shellcmdflag = ""
-    end
-
     -- Set up custom filetypes
     -- vim.filetype.add {
     --   extension = {
