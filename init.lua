@@ -1,5 +1,6 @@
 local impatient_ok, impatient = pcall(require, "impatient")
 if impatient_ok then impatient.enable_profile() end
+vim.g.catppuccin_flavour="macchiato"
 
 for _, source in ipairs {
   "core.utils",

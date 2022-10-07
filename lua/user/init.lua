@@ -18,6 +18,7 @@ local config = {
   },
 
   -- Set colorscheme (look lower down you doofus)
+  --colorscheme = "default_theme",
   colorscheme = "catppuccin",
 
   -- Override highlight groups in any theme
@@ -87,7 +88,14 @@ local config = {
       { 'bluz71/vim-nightfly-guicolors' },
       
       -- You can also add new plugins here as well:
-      { "catppuccin/nvim", as = "catppuccin" },
+      { 
+        "catppuccin/nvim", 
+        as = "catppuccin",
+        config = function()
+          vim.g.catppuccin_flavour = "macchiato"
+          require("catppuccin").setup()
+        end,
+        },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
