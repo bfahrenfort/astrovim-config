@@ -91,6 +91,13 @@ local config = {
       -- You can also add new plugins here as well:
       { 'andweeb/presence.nvim' },
       { "catppuccin/nvim", as = "catppuccin" },
+      { "dart-lang/dart-vim-plugin" },
+      {
+        "iamcco/markdown-preview.nvim",
+        run = "cd app && npm install",
+        setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+        ft = { "markdown" },
+      },
       -- {
       --   "ray-x/lsp_signature.nvim",
       --   event = "BufRead",
@@ -286,6 +293,7 @@ local config = {
     -- }
     vim.g.do_filetype_lua = 1
     vim.g.did_load_filetypes = false
+    vim.g.dart_format_on_save = 1
   end,
 
 }
