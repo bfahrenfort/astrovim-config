@@ -124,6 +124,9 @@ local config = {
       end
       return config -- return final config table
     end,
+    telescope = {
+      extensions = { 'flutter', },
+    },
     treesitter = {
       ensure_installed = { "lua" },
     },
@@ -145,6 +148,21 @@ local config = {
     },
   },
 
+  mappings = {
+    -- first key is the mode
+    n = {
+      -- second key is the lefthand side of the map
+      ["<C-s>"]      = { ":w!<cr>", desc = "Save File" },
+      ["<C-x>"]      = { ":bd<cr>", desc = "Close File" },
+      ["tt"]         = { ":terminal<cr>", desc = "Open Terminal" },
+      ["<leader>Tf"] = { "<cmd>Telescope flutter commands<cr>", desc = "Show Flutter Commands" },
+    },
+    t = {
+      -- setting a mapping to false will disable it
+      -- ["<esc>"] = false,
+    },
+  },
+
   -- Modify which-key registration
   ["which-key"] = {
     -- Add bindings
@@ -153,6 +171,7 @@ local config = {
       n = {
         -- second key is the prefix, <leader> prefixes
         ["<leader>"] = {
+          ["T"] = { name = "+Coding Commands"},
           -- which-key registration table for normal mode, leader prefix
           -- ["N"] = { "<cmd>tabnew<cr>", "New Buffer" },
         },
@@ -218,21 +237,7 @@ local config = {
     virtual_text = true,
     underline = true,
   },
-
-  mappings = {
-    -- first key is the mode
-    n = {
-      -- second key is the lefthand side of the map
-      ["<C-s>"] = { ":w!<cr>", desc = "Save File" },
-      ["<C-x>"] = { ":bd<cr>", desc = "Close File" },
-      ["tt"]    = { ":terminal<cr>", desc = "Open Terminal" }
-    },
-    t = {
-      -- setting a mapping to false will disable it
-      -- ["<esc>"] = false,
-    },
-  },
-
+ 
   -- This function is run last
   -- good place to configuring augroups/autocommands and custom filetypes
   polish = function()
